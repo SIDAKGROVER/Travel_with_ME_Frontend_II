@@ -1,12 +1,18 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Travel With ME — React Travel Website
 
-Currently, two official plugins are available:
+This repository contains the front-end for "Travel With ME", a small travel/booking SPA built with React and Vite. It demonstrates a component-driven UI, client-side routing, simple authentication (localStorage), and features for browsing destinations, tours, and hotels.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Key features
+- Home page with popular destinations and tour listings
+- Destination image slider with reliable Unsplash-based image sourcing and fallbacks
+- Tour listing with ratings and "Book Now" buttons that link to the hotels page filtered by state
+- Hotels page with state-wise filtering
+- Simple login/signup flow (localStorage-based session)
+- Responsive component styles and a WhatsApp floating-action button for quick contact
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Tech stack
+- React (functional components + hooks)
+- React Router for client-side routing
+- Vite for development and build
+- Plain CSS modularized per component
