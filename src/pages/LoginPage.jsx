@@ -12,15 +12,37 @@ function LoginPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const users = JSON.parse(localStorage.getItem('users') || '[]');
-    const user = users.find(u => u.email === formData.email && u.password === formData.password);
-    
-    if (user) {
-      localStorage.setItem('currentUser', JSON.stringify(user));
-      navigate('/');
-    } else {
-      setError('Invalid email or password');
-    }
+    setError('');
+
+    // Use backend login endpoint
+    (async () => {
+      try {
+        const res = await fetch('http://localhost:3000/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email: formData.email, password: formData.password })
+        });
+
+        const data = await res.json();
+        if (!res.ok) {
+          setError(data.message || 'Login failed');
+          return;
+        }
+
+        // Backend returns basic user info on success
+        if (data && data.user) {
+          localStorage.setItem('currentUser', JSON.stringify(data.user));
+        } else {
+          // fallback: store email
+          localStorage.setItem('currentUser', JSON.stringify({ email: formData.email }));
+        }
+
+        navigate('/');
+      } catch (err) {
+        console.error('Login error:', err);
+        setError('Unable to contact backend. Start the server.');
+      }
+    })();
   };
 
   return (

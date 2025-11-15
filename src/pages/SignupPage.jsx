@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './AuthPages.css';
+import bcrypt from 'bcryptjs';
 
 function SignupPage() {
   const [formData, setFormData] = useState({
@@ -12,34 +13,47 @@ function SignupPage() {
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    
-    if (formData.password !== formData.confirmPassword) {
-      setError('Passwords do not match');
+  const handleSubmit = async (e) => {
+  e.preventDefault();
+  setError('');
+
+  if (formData.password !== formData.confirmPassword) {
+    setError('Passwords do not match');
+    return;
+  }
+
+  try {
+    const res = await fetch('http://localhost:3000/sign_up', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        name: formData.name,
+        email: formData.email,
+        password: formData.password
+      })
+    });
+
+    const data = await res.json();
+
+    if (!res.ok) {
+      setError(data.message || 'Signup failed');
       return;
     }
 
-    const users = JSON.parse(localStorage.getItem('users') || '[]');
-    const existingUser = users.find(u => u.email === formData.email);
-    
-    if (existingUser) {
-      setError('Email already exists');
-      return;
+    // Persist minimal user info so the app knows someone is signed in
+    if (data && data.user) {
+      localStorage.setItem('currentUser', JSON.stringify(data.user));
     }
 
-    const newUser = {
-      id: Date.now(),
-      name: formData.name,
-      email: formData.email,
-      password: formData.password
-    };
-
-    users.push(newUser);
-    localStorage.setItem('users', JSON.stringify(users));
-    localStorage.setItem('currentUser', JSON.stringify(newUser));
     navigate('/');
-  };
+  } catch (err) {
+    console.error(err);
+    setError('Backend not running. Start Node server.');
+  }
+};
+
 
   return (
     <div className="auth-container">

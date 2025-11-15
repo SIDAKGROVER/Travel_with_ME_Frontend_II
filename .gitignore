@@ -22,3 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Local server env (do not commit .env with credentials)
+/server/.env
