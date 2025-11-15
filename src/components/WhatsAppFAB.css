@@ -1,0 +1,22 @@
+/* src/components/WhatsAppFAB.css */
+.whatsapp-fab {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  background-color: var(--whatsapp-green);
+  color: white;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+  z-index: 1000;
+  transition: transform 0.2s ease;
+}
+
+.whatsapp-fab:hover {
+  transform: scale(1.1);
+}

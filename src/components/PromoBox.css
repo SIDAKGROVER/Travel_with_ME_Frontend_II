@@ -1,0 +1,61 @@
+/* src/components/PromoBox.css */
+.promo-box {
+  background-color: var(--dark-bg);
+  color: var(--text-light);
+  border-radius: 20px;
+  padding: 40px;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  margin: 40px 0;
+}
+
+.promo-image {
+  position: relative;
+  flex: 1;
+}
+
+.promo-image img {
+  width: 100%;
+  border-radius: 15px;
+  display: block;
+}
+
+.promo-tag {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(5px);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 14px;
+}
+
+.promo-content {
+  flex: 1;
+}
+
+.promo-content h2 {
+  font-size: 36px;
+  line-height: 1.3;
+  margin: 0 0 15px;
+}
+
+.promo-content p {
+  font-size: 18px;
+  color: var(--text-secondary);
+  margin: 0 0 25px;
+}
+
+.promo-content button {
+  background-color: white;
+  color: var(--text-dark);
+  border: none;
+  border-radius: 8px;
+  padding: 12px 25px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}

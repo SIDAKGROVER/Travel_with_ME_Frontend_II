@@ -1,0 +1,49 @@
+.filter-container {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.state-filter {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  background-color: white;
+  cursor: pointer;
+  outline: none;
+  min-width: 200px;
+}
+
+.state-filter:hover {
+  border-color: #007bff;
+}
+
+.tour-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tour-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.tour-info .rating {
+  color: #ffd700;
+  font-weight: bold;
+}
+
+.book-btn {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+}
+
+.book-btn:hover {
+  background-color: #0056b3;
+}
