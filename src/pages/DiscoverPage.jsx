@@ -2,14 +2,7 @@ import React from 'react';
 import SectionHeading from '../components/SectionHeading';
 import DestinationSlider from '../components/DestinationSlider';
 import './DiscoverPage.css';
-
-const sampleDestinations = [
-  { id: 1, name: 'Goa', image: 'https://source.unsplash.com/464x500/?goa,beach' },
-  { id: 2, name: 'Manali', image: 'https://source.unsplash.com/464x500/?manali,mountains' },
-  { id: 3, name: 'Jaipur', image: 'https://source.unsplash.com/464x500/?jaipur,india' },
-  { id: 4, name: 'Kerala', image: 'https://source.unsplash.com/464x500/?kerala,backwaters' },
-  { id: 5, name: 'Rishikesh', image: 'https://source.unsplash.com/464x500/?rishikesh,river' },
-];
+import { destinations } from '../data/destinations';
 
 function DiscoverPage() {
   return (
@@ -27,7 +20,7 @@ function DiscoverPage() {
         </p>
       </div>
 
-      <DestinationSlider destinations={sampleDestinations} />
+      <DestinationSlider destinations={destinations} />
     </div>
   );
 }
