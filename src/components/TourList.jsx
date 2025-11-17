@@ -4,12 +4,22 @@ import { Link } from 'react-router-dom';
 import StarRating from './StarRating';
 import './TourList.css';
 
-function TourList({ tours }) {
+function TourList({ tours = [] }) {
   return (
     <div className="tour-list">
       {tours.map(tour => (
         <div className="tour-card" key={tour.id}>
-          <img src={tour.image} alt={tour.location} className="tour-image" />
+          <img
+            src={tour.image}
+            alt={tour.location || tour.title}
+            className="tour-image"
+            loading="lazy"
+            onError={(e) => {
+              e.currentTarget.onerror = null;
+              const q = encodeURIComponent(tour.location || tour.title || 'travel');
+              e.currentTarget.src = `https://source.unsplash.com/600x400/?${q}`;
+            }}
+          />
           <div className="tour-content">
             <div className="tour-header">
               <span className="tour-price">From ₹{tour.price}</span>

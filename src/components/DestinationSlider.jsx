@@ -21,13 +21,13 @@ function DestinationSlider({ destinations }) {
         {destinations.map(dest => (
           <div className="destination-card" key={dest.id}>
             <img
-              src={dest.image}
+              src={dest.image || `https://source.unsplash.com/464x500/?${encodeURIComponent(dest.name)}`}
               alt={dest.name}
               loading="lazy"
               onError={(e) => {
-                // fallback to Unsplash query by name if original URL fails
                 e.currentTarget.onerror = null;
-                const query = encodeURIComponent(dest.name + ", india");
+                // simpler query without punctuation to improve reliability
+                const query = encodeURIComponent(dest.name.replace(/[,\/]/g, ''));
                 e.currentTarget.src = `https://source.unsplash.com/464x500/?${query}`;
               }}
             />

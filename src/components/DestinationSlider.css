@@ -26,6 +26,7 @@
   border-radius: 15px;
   overflow: hidden;
   box-shadow: var(--card-shadow);
+  background-color: #f3f4f6; /* neutral background while image loads or fails */
 }
 
 .destination-card img {

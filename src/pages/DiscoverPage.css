@@ -1,0 +1,24 @@
+.discover-page .discover-intro{
+  max-width:900px;
+  margin:0 auto 20px;
+  text-align:center;
+  color:#444;
+}
+
+/* Destination slider wrapper spacing */
+.slider-container{
+  margin:20px auto;
+  max-width:1000px;
+}
+
+.destination-card img{
+  width:100%;
+  height:260px;
+  object-fit:cover;
+  border-radius:8px;
+}
+
+.destination-card h3{
+  text-align:center;
+  margin-top:8px;
+}

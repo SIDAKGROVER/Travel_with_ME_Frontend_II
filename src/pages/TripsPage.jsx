@@ -1,6 +1,7 @@
 import React from 'react';
 import SectionHeading from '../components/SectionHeading';
 import TourList from '../components/TourList';
+import { tours } from '../data/tours';
 
 function TripsPage() {
   return (
@@ -9,7 +10,9 @@ function TripsPage() {
         title="Available Trips"
         subtitle="Find your perfect adventure"
       />
-      <TourList />
+      <div className="container">
+        <TourList tours={tours} />
+      </div>
     </div>
   );
 }
