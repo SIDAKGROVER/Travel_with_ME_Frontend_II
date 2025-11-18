@@ -137,7 +137,8 @@ async function start() {
     }
   });
 
-  app.listen(PORT, () => console.log(`Server listening on port ${PORT}`));
+  // Bind explicitly to 0.0.0.0 to ensure IPv4 localhost (127.0.0.1) connectivity on Windows
+  app.listen(PORT, '0.0.0.0', () => console.log(`Server listening on port ${PORT} (0.0.0.0)`));
 }
 
 start();

@@ -1,24 +1,33 @@
-.filter-container {
-  text-align: center;
-  margin: 20px 0;
+.tours-container{
+  padding: 24px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.state-filter {
-  padding: 10px 20px;
-  font-size: 16px;
-  border: 2px solid #e0e0e0;
+.filter-container{
+  margin: 12px 0 20px;
+  text-align: left;
+}
+
+.state-filter{
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid var(--border-light);
+}
+
+.tours-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 18px;
+}
+
+.tour-card{
   border-radius: 8px;
-  background-color: white;
-  cursor: pointer;
-  outline: none;
-  min-width: 200px;
-}
-
-.state-filter:hover {
-  border-color: #007bff;
-}
-
-.tour-card {
+  overflow: hidden;
+  box-shadow: var(--card-shadow);
+  background: #fff;
+  display: flex;
+  flex-direction: column;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -27,23 +36,110 @@
   box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
 
+.tour-card img{ 
+  width:100%;
+  height:180px;
+  object-fit:cover;
+  background:#f3f4f6;
+}
+
+.tour-info{
+  padding: 12px 14px;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+
+.tour-footer{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.price{
+  font-weight:600;
+}
+
 .tour-info .rating {
   color: #ffd700;
   font-weight: bold;
 }
 
-.book-btn {
-  width: 100%;
-  padding: 10px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  margin-top: 10px;
+.book-btn{
+  margin-top:8px;
+  background:var(--primary-blue);
+  color:#fff;
+  border:none;
+  padding:10px 12px;
+  border-radius:6px;
+  cursor:pointer;
 }
 
-.book-btn:hover {
-  background-color: #0056b3;
+/* Booking modal */
+.booking-modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.4);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:40;
+}
+
+.booking-panel{
+  width:100%;
+  max-width:520px;
+  background:#fff;
+  border-radius:8px;
+  padding:18px;
+  position:relative;
+  box-shadow:0 10px 30px rgba(0,0,0,0.2);
+}
+
+.close-btn{
+  position:absolute;
+  right:10px;
+  top:8px;
+  border:none;
+  background:transparent;
+  font-size:22px;
+  cursor:pointer;
+}
+
+.booking-form label{
+  display:block;
+  margin-top:10px;
+  font-size:14px;
+}
+
+.booking-form input{
+  width:100%;
+  padding:8px 10px;
+  border-radius:6px;
+  border:1px solid var(--border-light);
+  margin-top:6px;
+}
+
+.booking-actions{
+  margin-top:14px;
+  display:flex;
+  gap:8px;
+  justify-content:flex-end;
+}
+
+.confirm-btn{
+  background:var(--primary-blue);
+  color:#fff;
+  border:none;
+  padding:8px 12px;
+  border-radius:6px;
+  cursor:pointer;
+}
+
+.cancel-btn{
+  background:#fff;
+  border:1px solid var(--border-light);
+  padding:8px 12px;
+  border-radius:6px;
+  cursor:pointer;
 }
